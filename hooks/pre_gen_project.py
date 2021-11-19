@@ -4,7 +4,7 @@ import sys
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
 
-MODULE_NAME = "{{cookiecutter.repo_name }}"
+MODULE_NAME = "{{cookiecutter.repo_name}}"
 
 if not re.match(MODULE_REGEX, MODULE_NAME):
     print(

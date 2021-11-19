@@ -4,10 +4,10 @@ from pathlib import Path
 
 PROJECT_DIRECTORY = Path.cwd()
 
-if "{{cookiecutter.open_source_license }}" == "Not open source":
+if "{{cookiecutter.open_source_license}}" == "Not open source":
     (PROJECT_DIRECTORY / "LICENSE").unlink()
 
-if "{{cookiecutter.setup_project }}" == "Yes - select this":
+if "{{cookiecutter.setup_project}}" == "Yes - select this":
     subprocess.call(["git", "init"])
     subprocess.call(["pipenv", "install", "--dev", "--skip-lock"])
     subprocess.call(["pipenv", "run", "pre-commit", "install"])

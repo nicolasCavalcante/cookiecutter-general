@@ -1,7 +1,7 @@
 {{cookiecutter.project_name}}
 ==============================
 
-{{cookiecutter.description }}
+{{cookiecutter.description}}
 ## Getting Started
 
     pipenv install --dev

@@ -19,16 +19,16 @@ def read(path: Path):
 
 
 setup(
-    name="{{cookiecutter.repo_name }}",
-    description="{{cookiecutter.description }}",
-    author="{{cookiecutter.full_name.replace('\"', '\\\"') }}",
-    author_email="{{cookiecutter.email }}",
-    packages=find_packages(include=["{{cookiecutter.repo_name }}", "{{cookiecutter.repo_name }}.*"]),
+    name="{{cookiecutter.repo_name}}",
+    description="{{cookiecutter.description}}",
+    author="{{cookiecutter.full_name.replace('\"', '\\\"')}}",
+    author_email="{{cookiecutter.email}}",
+    packages=find_packages(include=["{{cookiecutter.repo_name}}", "{{cookiecutter.repo_name}}.*"]),
     include_package_data=True,
 {%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{cookiecutter.open_source_license }}",
+    license="{{cookiecutter.open_source_license}}",
 {%- endif %}
-    keywords="{{cookiecutter.repo_name }}",
-    url="https://github.com/{{cookiecutter.github_username }}/{{cookiecutter.repo_name }}",
+    keywords="{{cookiecutter.repo_name}}",
+    url="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}",
     long_description=read(SELF_PATH / "README.md"),
 )
