@@ -29,6 +29,7 @@ Run tests and formating, [Doit]:
 
 * [Pipenv] for managing packages and virtualenvs in a modern way.
 * Code quality: [black], [isort], and [autoflake] already installed.
+* Modern CLI with [Typer].
 * [Pytest] for testing.
 * [Doit] for automation.
 
@@ -51,6 +52,7 @@ This is our your new project will look like:
     ├───tests                     <- All project tests
     │
     └───<repo_name>
+        └───cli.py                <- Entry point, acessible by <repo_name> <args> using typer
 
 #### References:
 https://github.com/drivendata/cookiecutter-data-science
@@ -67,4 +69,5 @@ https://gist.github.com/bradtraversy/c70a93d6536ed63786c434707b898d55
 [isort]: https://github.com/timothycrosley/isort
 [autoflake]: https://github.com/myint/autoflake
 [Pytest]: https://docs.pytest.org/en/latest/
+[Typer]: https://typer.tiangolo.com/
 [Doit]: https://pydoit.org/
