@@ -17,6 +17,10 @@ doit = "*"
 pytest = "*"
 nbqa = "*"
 flake8 = "*"
+{%- if cookiecutter.add_docs == "Yes" %}
+mkdocs = "*"
+{%- endif %}
+
 
 [requires]
 python_version = "3.7"

@@ -1,6 +1,10 @@
 {
     "project_name": "Project Name",
     "repo_name": "{{cookiecutter.project_name.lower().replace(' ', '_')}}",
+    "add_docs": [
+        "No",
+        "Yes"
+    ],
     "full_name": "Nicolas Garcia Cavalcante",
     "email": "nicolasgcavalcante@gmail.com",
     "github_username": "nicolasCavalcante",

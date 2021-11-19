@@ -32,6 +32,7 @@ Run tests and formating, [Doit]:
 * Modern CLI with [Typer].
 * [Pytest] for testing.
 * [Doit] for automation.
+* [Mkdocs] (optional) for documentation.
 
 ## Directory structure
 
@@ -50,6 +51,9 @@ This is our your new project will look like:
     │                                `01_cp_exploratory_data_analysis.ipynb`.
     │
     ├───tests                     <- All project tests
+    │
+    ├── docs                      <- MkDocs data files
+    ├── mkdocs.yml                <- MkDocs config file
     │
     └───<repo_name>
         └───cli.py                <- Entry point, acessible by <repo_name> <args> using typer
@@ -71,3 +75,4 @@ https://gist.github.com/bradtraversy/c70a93d6536ed63786c434707b898d55
 [Pytest]: https://docs.pytest.org/en/latest/
 [Typer]: https://typer.tiangolo.com/
 [Doit]: https://pydoit.org/
+[Mkdocs]: https://www.mkdocs.org/
