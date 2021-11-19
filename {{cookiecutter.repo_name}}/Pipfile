@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 {{cookiecutter.repo_name}} = {editable = true, path = "."}
 pytest = "*"
+typer = "*"
 
 [dev-packages]
 black = "21.11b1"

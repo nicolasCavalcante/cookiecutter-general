@@ -21,6 +21,9 @@ def read(path: Path):
 setup(
     name="{{cookiecutter.repo_name}}",
     description="{{cookiecutter.description}}",
+    entry_points={
+        "console_scripts": ["{{cookiecutter.repo_name}}={{cookiecutter.repo_name}}.cli:app"],
+    },
     author="{{cookiecutter.full_name.replace('\"', '\\\"')}}",
     author_email="{{cookiecutter.email}}",
     packages=find_packages(include=["{{cookiecutter.repo_name}}", "{{cookiecutter.repo_name}}.*"]),
