@@ -22,9 +22,9 @@ def task_format():
             "actions": [
                 (
                     "autoflake -i -r --expand-star-imports"
-                    + " --remove-all-unused-imports"
-                    + " --remove-duplicate-keys --remove-unused-variables %s"
-                    + " %s isort %s %s black --line-length 79 %s"
+                    " --remove-all-unused-imports"
+                    " --remove-duplicate-keys --remove-unused-variables %s"
+                    " %s isort %s %s black --line-length 79 %s"
                 )
                 % (filepath, SEP, filepath, SEP, filepath)
             ],
@@ -32,7 +32,7 @@ def task_format():
             "verbosity": 2,
         }
 
-
+{% if cookiecutter.add_notebook == 'Yes' -%}
 def task_formatnb():
     """makes notebooks organized and pretty"""
     nparts = len(NBS_PATH.parts)
@@ -47,7 +47,7 @@ def task_formatnb():
             "file_dep": [filepath],
             "verbosity": 2,
         }
-
+{% endif %}
 
 def task_pytest():
     """run pytests under tests folder"""

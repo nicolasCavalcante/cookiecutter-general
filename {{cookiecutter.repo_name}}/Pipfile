@@ -15,7 +15,9 @@ autoflake = "*"
 pre-commit = "*"
 doit = "*"
 pytest = "*"
+{% if cookiecutter.add_notebook == 'Yes' -%}
 nbqa = "*"
+{%- endif %}
 flake8 = "*"
 {%- if cookiecutter.add_docs == "Yes" %}
 mkdocs = "*"

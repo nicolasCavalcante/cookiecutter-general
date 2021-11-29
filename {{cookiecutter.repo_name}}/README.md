@@ -4,5 +4,5 @@
 {{cookiecutter.description}}
 ## Getting Started
 
-    pipenv install --dev
+    pipenv install --dev --skip-lock
     pipenv shell

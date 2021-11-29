@@ -5,6 +5,10 @@
         "No",
         "Yes"
     ],
+    "add_notebook": [
+        "Yes",
+        "No"
+    ],
     "full_name": "Nicolas Garcia Cavalcante",
     "email": "nicolasgcavalcante@gmail.com",
     "github_username": "nicolasCavalcante",

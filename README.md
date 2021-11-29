@@ -14,7 +14,7 @@ Create Git repository:
 
 Install and launch enviroment:
 
-    pipenv install --dev
+    pipenv install --dev --skip-lock
     pipenv shell
 
 

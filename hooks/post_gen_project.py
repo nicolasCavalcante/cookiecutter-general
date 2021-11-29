@@ -12,6 +12,9 @@ if "{{cookiecutter.add_docs}}" == "No":
     shutil.rmtree(PROJECT_DIRECTORY / "docs")
     (PROJECT_DIRECTORY / "mkdocs.yml").unlink()
 
+if "{{cookiecutter.add_notebook}}" == "No":
+    shutil.rmtree(PROJECT_DIRECTORY / "notebooks")
+
 if "{{cookiecutter.setup_project}}" == "Yes - select this":
     subprocess.call(["git", "init"])
     subprocess.call(["pipenv", "install", "--dev", "--skip-lock"])

@@ -22,9 +22,9 @@ def task_format():
             "actions": [
                 (
                     "autoflake -i --expand-star-imports"
-                    + " --remove-all-unused-imports"
-                    + " --remove-duplicate-keys --remove-unused-variables %s"
-                    + " %s isort %s %s black --line-length 79 %s"
+                    " --remove-all-unused-imports"
+                    " --remove-duplicate-keys --remove-unused-variables %s"
+                    " %s isort %s %s black --line-length 79 %s"
                 )
                 % (filepath, SEP, filepath, SEP, filepath)
             ],
