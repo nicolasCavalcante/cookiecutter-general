@@ -1,11 +1,9 @@
-import platform
 import subprocess
 from pathlib import Path
 
-SEP = "&" if platform.system() == "Windows" else ";"
 SELF_PATH = Path(__file__).parent.absolute()
 NBS_PATH = SELF_PATH / "notebooks"
-DOIT_CONFIG = {"default_tasks": ["format", "formatnb", "pytest"]}
+DOIT_CONFIG = {"default_tasks": ["format", "formatnb"]}
 
 
 def syscmd(string):
@@ -18,18 +16,19 @@ def task_format():
     nparts = len(SELF_PATH.parts)
     for filepath in SELF_PATH.glob("**/*.py"):
         yield {
-            "name": "/".join(filepath.parts[nparts:]),
+            "name":
+            "/".join(filepath.parts[nparts:]),
             "actions": [
-                (
-                    "autoflake -i -r --expand-star-imports"
-                    " --remove-all-unused-imports"
-                    " --remove-duplicate-keys --remove-unused-variables %s"
-                    " %s isort %s %s black --line-length 79 %s"
-                )
-                % (filepath, SEP, filepath, SEP, filepath)
+                lambda: syscmd(
+                    ("autoflake -i -r --expand-star-imports"
+                     " --remove-all-unused-imports --remove-duplicate-keys"
+                     " --remove-unused-variables %s") % filepath),
+                lambda: syscmd("isort %s" % filepath),
+                lambda: syscmd("black --line-length 79 %s" % filepath)
             ],
             "file_dep": [filepath],
-            "verbosity": 2,
+            "verbosity":
+            2,
         }
 
 {% if cookiecutter.add_notebook == 'Yes' -%}
@@ -37,14 +36,22 @@ def task_formatnb():
     """makes notebooks organized and pretty"""
     nparts = len(NBS_PATH.parts)
     for filepath in NBS_PATH.glob("*.ipynb"):
-        filename = filepath.as_posix()
+        filename = f'"{filepath.as_posix()}"'
         yield {
             "name": "/".join(filepath.parts[nparts:]),
             "actions": [
-                ('nbqa isort "%s" %s nbqa black "%s"')
-                % (filename, SEP, filename)
+                lambda: syscmd(
+                    (
+                        "nbqa autoflake %s --in-place --remove-duplicate-keys "
+                        "--remove-unused-variables --remove-all-unused-imports "
+                        "--expand-star-imports"
+                    )
+                    % filename
+                ),
+                lambda: syscmd("nbqa isort %s" % filename),
+                lambda: syscmd("nbqa black %s" % filename),
             ],
-            "file_dep": [filepath],
+            "file_dep": [filepath.as_posix()],
             "verbosity": 2,
         }
 {% endif %}

@@ -41,10 +41,9 @@ repos:
         exclude: ^{{cookiecutter.repo_name}}/
   - repo: local
     hooks:
-      - id: pytest-check
-        name: pytest-check
-        entry: pytest
+      - id: pytest
+        name: pytest
+        entry: pytest tests
         language: system
         pass_filenames: false
         always_run: true
-        files: ^tests/
